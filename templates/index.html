@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body align="left">
+ <div class="login">
+	<h1 style="font-size: 3rem; color:  #34568B">Face Recognition and Attendance</h1>
+	<h1 style="font-size: 2rem; color:  #34568B">Instructions for use:</h1>
+	<div style="font-size: 1.5rem; color:  #34568B">
+    1. Pressing 'Start' button on UI, the webcam will start capturing and show the video feed<br>
+    2. Press 'c' to capture and create records from the video feed <br>
+    3. If 'c' is pressed multiple times, multiple records will be made and added to record file<br>
+    4. On pressing 'q' the video will stop capturing and the final record file is shown<br>
+    </div>
+    <br>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form align="left" style="font-size: 2rem; color:#6B5B95" action="{{ url_for('Start')}}"method="post">
+        <button style="font-size: 2rem; color:#955251" type="submit" class="btn btn-primary btn-block btn-large">Start</button>
+    </form>
+
+   <br>
+   <br>
+   <div style="font-size: 2rem; color:  #34568B">
+    {% for table in tables %}
+            {{titles[loop.index]}}
+            {{ table|safe }}
+    {% endfor %}
+    </div>
+
+ </div>
+
+</body>
+</html>
